@@ -6,6 +6,9 @@ public abstract class Creature {
     private int agility=0;
     private String creatureName = "";
 
+    private boolean isAlive = true;
+
+
     public Creature (int health, int armour, int money, int strength, int agility, String creatureName){
         this.health = health;
         this.armour = armour;
@@ -14,4 +17,25 @@ public abstract class Creature {
         this.agility = agility;
         this.creatureName = creatureName;
     }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
+
+
+
+
+
 }
