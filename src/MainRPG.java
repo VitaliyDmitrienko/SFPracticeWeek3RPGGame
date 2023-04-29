@@ -14,17 +14,19 @@ public class MainRPG {
         System.out.println("<1> Start new game.");
         System.out.println("<2> Exit game.");
         Scanner scanner = new Scanner(System.in);
+        String input = "";
 
-        while (true) {
-            String input = scanner.nextLine();
+        do {
+            input = scanner.nextLine().trim();
             if (input.equals("2")) {
                 System.out.println("You exit a Game. See You later !!!");
                 break;
             }
             else CreateHero.startGame ();
+            StartPosition.onCrossRoads();
 
         }
-        StartPosition.onCrossRoads();
+        while (!input.equals("1") || !input.equals("2"));
 
 
     }

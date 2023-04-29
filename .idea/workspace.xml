@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ec5c664-f5d4-4a84-8bed-d3421c44fa74" name="Changes" comment="1st commit. Begin work.">
-      <change afterPath="$PROJECT_DIR$/src/BattleField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CreateHero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DarkWood.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StartPosition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Adventurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Adventurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CreateWorld.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Creature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainRPG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainRPG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StartPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StartPosition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Town.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Town.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
