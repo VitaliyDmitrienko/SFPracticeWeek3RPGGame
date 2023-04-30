@@ -3,10 +3,10 @@
 import java.util.Scanner;
 
 public class MainRPG {
+
     public static void main(String[] args) {
         System.out.println ( "Hello world!" );
         startGame();
-
     }
 
     private static void startGame () {
@@ -14,20 +14,22 @@ public class MainRPG {
         System.out.println("<1> Start new game.");
         System.out.println("<2> Exit game.");
         Scanner scanner = new Scanner(System.in);
-        String input = "";
+        int choose;
 
         do {
-            input = scanner.nextLine().trim();
-            if (input.equals("2")) {
-                System.out.println("You exit a Game. See You later !!!");
-                break;
+            choose = scanner.nextInt();
+            switch (choose) {
+                case (2)-> System.out.println("You exit a Game. See You later !!!");
+                case (1)-> {String heroName = CreateHero.startGame();
+                    Adventurer hero = new Adventurer(50,5,5,5,100, heroName);
+                    StartPosition.onCrossRoads(Adventurer hero);}
+                default -> System.out.println("Wrong input. Try right again.");
             }
-            else CreateHero.startGame ();
-            StartPosition.onCrossRoads();
 
         }
-        while (!input.equals("1") || !input.equals("2"));
+        while (choose <1 || choose >2);
 
 
     }
+
 }

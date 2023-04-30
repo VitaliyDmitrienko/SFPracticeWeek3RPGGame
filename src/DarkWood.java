@@ -1,3 +1,9 @@
 public class DarkWood {
-    public static void enterWood () {}
+    public static void visitWood () {
+
+    }
+
+    public void BattleField (Monster monster, Adventurer adventurer) {
+
+    }
 }

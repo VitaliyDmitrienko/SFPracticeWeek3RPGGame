@@ -5,39 +5,109 @@ import java.util.Scanner;
 public class Town {
 
 
+
+
     class Trader {
         int money = 1000;
         List<Item> inventory = new LinkedList<Item>();
 
-        void buyItem() {
+        static void buyItem() {
+            System.out.println("Buying item ...");
         }
 
-        void sellItem() {
+        static void sellItem() {
+            System.out.println("Selling item ...");
         }
 
-        static void visitTrader() {
+        static void visitTrader(Adventurer hero) {
             System.out.println("You are inside General Store at trader desk.");
             System.out.println("Choose your goal.\n");
+            System.out.println("<1> Buy item.");
+            System.out.println("<2> Sell item.");
+            System.out.println("<3> Check hero status.");
+            System.out.println("<4> Exit store and return to town.");
+            Scanner scanner = new Scanner(System.in);
+            int choose;
+
+            do { choose = scanner.nextInt();
+                switch (choose) {
+                    case (1): buyItem(); break;
+                    case (2): sellItem(); break;
+                    case (3): hero.getStatus(); break;
+                    case (4): visitTown(Adventurer hero); break;
+                    default:
+                        System.out.println("Wrong input. Try right again.");
+                }
+
+            } while (choose <1 || choose >3);
         }
     }
 
     class Inn {
-        void sleep() {
+        static void sleep() {
+            if (hero.getMoney() >= 15) {
+                Adventurer.setHealth(Adventurer.getMaxLevelHealth());
+                Adventurer.setMoney(-15);
+            } else System.out.println("Not enough money to sleep. Get more money somewhere in other place.");
         }
 
-        static void visitInn() {
+        static void visitInn(Adventurer hero) {
             System.out.println("You are inside local at bar desk.");
             System.out.println("Choose your goal.\n");
+            System.out.println("<1> Sleep one night and restore health (cost 15 gold coins).");
+            System.out.println("<2> Check hero status.");
+            System.out.println("<3> Exit inn and return to town.");
+            Scanner scanner = new Scanner(System.in);
+            int choose;
+
+            do { choose = scanner.nextInt();
+                switch (choose) {
+                    case (1): sleep(); break;
+                    case (2): hero.getStatus(); break;
+                    case (3): visitTown(Adventurer hero); break;
+                    default:  System.out.println("Wrong input. Try right again.");
+                }
+
+            } while (choose <1 || choose >2);
+
 
         }
+    }
 
         class Temple {
-            void restoreHealth() {
+            static void restoreHealth() {
+            }
+            static void removeCurses() {
+                System.out.println("Removing curse ...");
+            }
+            static void prayGodsBless() {
+                System.out.println("Praying All Gods fo Bless ...");
             }
 
-            static void visitTemple() {
+            static void visitTemple(Adventurer hero) {
                 System.out.println("You are inside Temple at All-Gods-Altar.");
                 System.out.println("Choose your goal.\n");
+                System.out.println("<1> Restore health (cost 20 gold coins).");
+                System.out.println("<2> Remove all curses (cost 20 gold coins).");
+                System.out.println("<3> Pray for Gods Bless (cost 30 gold coins).");
+                System.out.println("<4> Check hero status.");
+                System.out.println("<5> Exit store and return to town.");
+                Scanner scanner = new Scanner(System.in);
+                int choose;
+
+                do { choose = scanner.nextInt();
+                    switch (choose) {
+                        case (1): restoreHealth(); break;
+                        case (2): removeCurses(); break;
+                        case (3): prayGodsBless(); break;
+                        case (4): hero.getStatus(); break;
+                        case (5): visitTown(Adventurer hero); break;
+                        default:
+                            System.out.println("Wrong input. Try right again.");
+                    }
+
+                } while (choose <1 || choose >5);
+
 
             }
         }
@@ -46,38 +116,33 @@ public class Town {
 
         }
 
-        public static void enterTown() {
+        public static void visitTown(Adventurer hero) {
             System.out.println("You are enter into Great Town." +
                     "You can visit local shops and offices." +
                     "Choose your goal.\n");
             System.out.println("<1> Visit Trader.");
             System.out.println("<2> Visit Inn.");
             System.out.println("<3> Visit Temple.");
-            System.out.println("<4> Exit town and return to crossroad.\n");
+            System.out.println("<4> Check hero status.");
+            System.out.println("<5> Exit town and return to crossroad.\n");
             Scanner scanner = new Scanner(System.in);
             int choose = 0;
 
             do {
                 choose = scanner.nextInt();
                 switch (choose) {
-                    case (1):
-                        Trader.visitTrader();
-                        break;
-                    case (2):
-                        Inn.visitInn();
-                        break;
-                    case (3):
-                        Temple.visitTemple();
-                        break;
-                    case (4):
-                        StartPosition.onCrossRoads();
-                        break;
+                    case (1): Trader.visitTrader(Adventurer hero); break;
+                    case (2): Inn.visitInn(Adventurer hero); break;
+                    case (3): Temple.visitTemple(Adventurer hero); break;
+                    case (4): hero.getStatus(); break;
+                    case (5): StartPosition.onCrossRoads(); break;
+                    default:
+                        System.out.println("Wrong input. Try right again.");
 
                 }
-            } while ((choose < 1) || (choose > 4));
+            } while ((choose < 1) || (choose > 5));
 
         }
 
 
     }
-}

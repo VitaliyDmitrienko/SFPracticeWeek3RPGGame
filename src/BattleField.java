@@ -7,10 +7,10 @@ public class BattleField {
     private static void fight(Monster monster, Adventurer adventurer) {
         while (true) {
             if (!monster.isAlive() && adventurer.isAlive()) {
-                System.out.println("Ork is dead. Elf win!");
+                System.out.println("Monster is dead. Hero win!");
                 break;
             } else if (monster.isAlive() && !adventurer.isAlive()) {
-                System.out.println("Elf is dead. Ork win!");
+                System.out.println("Hero is dead. Monster win!");
                 break;
             } else if (!monster.isAlive () && !adventurer.isAlive()) {
                 System.out.println("All is dead...");

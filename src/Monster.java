@@ -1,6 +1,7 @@
 public abstract class Monster extends Creature{
 
-    private int health=0;
+    private int level=0;
+    private static int health=0;
     private int armour=0;
     private int money=0;
     private int strength=0;
@@ -10,7 +11,7 @@ public abstract class Monster extends Creature{
     private int attack=0;
     private String monsterName = "";
 
-    public Monster(int health, int armour, int money, int strength, int agility, String monsterName){
+    public Monster(int health, int armour, int strength, int agility, int money, String monsterName){
         super (0,0,0,0,0, monsterName );
         System.out.println("Monster " + monsterName + " was created");
     }
@@ -20,11 +21,12 @@ public abstract class Monster extends Creature{
     }
 
     public int attack() {
+        growl();
         System.out.println("Monster " + monsterName + " attacked with damage " + attack);
         return attack;
     }
 
-    public int getHealth() {
+    public static int getHealth() {
         return health;
     }
 
@@ -32,8 +34,8 @@ public abstract class Monster extends Creature{
         return isAlive;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public static void setHealth(int health) {
+        Creature.setHealth(health);
     }
 
     public void setAlive(boolean alive) {

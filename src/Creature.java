@@ -1,21 +1,26 @@
 public abstract class Creature {
-    private int health=0;
-    private int armour=0;
-    private int money=0;
-    private int strength=0;
-    private int agility=0;
-    private String creatureName = "";
+    private static int level;
+    private static int health;
+    private static int maxLevelHealth=50;
 
-    private boolean isAlive = true;
+    protected static int armour;
+    private static int money;
+    protected static int strength;
+    protected static int agility;
+    private static int attack;
+
+    protected static String name = "";
+
+    boolean isAlive = true;
 
 
-    public Creature (int health, int armour, int money, int strength, int agility, String creatureName){
+    public Creature (int health, int armour, int strength, int agility, int money, String name){
         this.health = health;
         this.armour = armour;
-        this.money = money;
         this.strength = strength;
         this.agility = agility;
-        this.creatureName = creatureName;
+        this.money = money;
+        this.name =name;
     }
 
     public int getHealth() {
@@ -26,13 +31,22 @@ public abstract class Creature {
         return isAlive;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public static void setHealth(int health) {
+        Creature.health = health;
     }
 
     public void setAlive(boolean alive) {
         isAlive = alive;
     }
+
+    public void getStatus() {
+        System.out.println("Hero of name: " + this.name + " of level: " + this.level + ".");
+        System.out.println("Health is: " + health + " of health (max level): " + maxLevelHealth + ".");
+        System.out.println("Strength is: " + strength + ". Attack is: " + attack + ".");
+        System.out.println("Agility is: " + agility + ". Armour is: " + armour + ".");
+        System.out.println("Money is: " + money + ".");
+    }
+
 
 
 
