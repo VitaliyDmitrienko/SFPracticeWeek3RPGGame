@@ -1,5 +1,5 @@
 public class DarkWood {
-    public static void visitWood () {
+    public static void visitWood (Adventurer hero) {
 
     }
 

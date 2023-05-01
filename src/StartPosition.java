@@ -18,8 +18,8 @@ public class StartPosition {
         do {
             choose = scanner.nextInt();
             switch (choose) {
-                case (1) -> Town.visitTown(Adventurer hero);
-                case (2) -> DarkWood.visitWood(Adventurer hero);
+                case (1) -> Town.visitTown(hero);
+                case (2) -> DarkWood.visitWood(hero);
                 case (3) -> System.out.println("You exit a Game. See You later !!!");
                 default -> System.out.println("Wrong input. Try right again.");
             }

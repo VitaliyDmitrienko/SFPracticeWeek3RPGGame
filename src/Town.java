@@ -34,21 +34,22 @@ public class Town {
                     case (1): buyItem(); break;
                     case (2): sellItem(); break;
                     case (3): hero.getStatus(); break;
-                    case (4): visitTown(Adventurer hero); break;
+                    case (4): visitTown(hero); break;
                     default:
                         System.out.println("Wrong input. Try right again.");
                 }
 
             } while (choose <1 || choose >3);
+            visitTown(hero);
         }
     }
 
     class Inn {
-        static void sleep() {
-            if (hero.getMoney() >= 15) {
-                Adventurer.setHealth(Adventurer.getMaxLevelHealth());
-                Adventurer.setMoney(-15);
-            } else System.out.println("Not enough money to sleep. Get more money somewhere in other place.");
+        static void sleep(Adventurer hero) {
+//            if (hero.getMoney() >= 15) {
+//                Adventurer.setHealth(Adventurer.getMaxLevelHealth());
+//                Adventurer.setMoney(-15);
+//            } else System.out.println("Not enough money to sleep. Get more money somewhere in other place.");
         }
 
         static void visitInn(Adventurer hero) {
@@ -62,13 +63,14 @@ public class Town {
 
             do { choose = scanner.nextInt();
                 switch (choose) {
-                    case (1): sleep(); break;
+                    case (1): sleep(hero); break;
                     case (2): hero.getStatus(); break;
-                    case (3): visitTown(Adventurer hero); break;
+                    case (3): visitTown(hero); break;
                     default:  System.out.println("Wrong input. Try right again.");
                 }
 
             } while (choose <1 || choose >2);
+            visitTown(hero);
 
 
         }
@@ -101,7 +103,7 @@ public class Town {
                         case (2): removeCurses(); break;
                         case (3): prayGodsBless(); break;
                         case (4): hero.getStatus(); break;
-                        case (5): visitTown(Adventurer hero); break;
+                        case (5): visitTown(hero); break;
                         default:
                             System.out.println("Wrong input. Try right again.");
                     }
@@ -131,11 +133,11 @@ public class Town {
             do {
                 choose = scanner.nextInt();
                 switch (choose) {
-                    case (1): Trader.visitTrader(Adventurer hero); break;
-                    case (2): Inn.visitInn(Adventurer hero); break;
-                    case (3): Temple.visitTemple(Adventurer hero); break;
+                    case (1): Trader.visitTrader(hero); break;
+                    case (2): Inn.visitInn(hero); break;
+                    case (3): Temple.visitTemple(hero); break;
                     case (4): hero.getStatus(); break;
-                    case (5): StartPosition.onCrossRoads(); break;
+                    case (5): StartPosition.onCrossRoads(hero); break;
                     default:
                         System.out.println("Wrong input. Try right again.");
 
