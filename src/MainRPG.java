@@ -22,7 +22,8 @@ public class MainRPG {
                 case (2)-> System.out.println("You exit a Game. See You later !!!");
                 case (1)-> {String heroName = CreateHero.startGame();
                     Adventurer hero = new Adventurer(50,5,5,5,100, heroName);
-                    StartPosition.onCrossRoads(Adventurer hero);}
+//                    StartPosition.onCrossRoads(Adventurer hero);
+                    }
                 default -> System.out.println("Wrong input. Try right again.");
             }
 

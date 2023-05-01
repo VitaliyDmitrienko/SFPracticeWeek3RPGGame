@@ -2,22 +2,22 @@ import java.lang.reflect.Array;
 
 public class Adventurer extends Creature {
 
-    private static int level=1;
-    private static int [] maxLevelHealthArray = {0,50,100,200,300,400,500,600,700,800,900,1000};
-    private static int health;
+    private int level=1;
+    private int [] maxLevelHealthArray = {25,50,100,200,300,400,500,600,700,800,900,1000};
+//    private int health;
 
 
-    private static int maxLevelHealth=50;
-    private static int armour;
-    private static int money;
-    private static int strength;
-    private static int agility;
+    private int maxLevelHealth=50;
+//    private int armour;
+//    private int money;
+//    private int strength;
+//    private int agility;
     private int experience;
     private boolean isAlive = true;
-    private static int attack;
+    private int attack;
 
 
-    private static String name = "";
+//    private String name = "";
 
     public Adventurer(int health, int armour, int strength, int agility, int money, String adventurerName){
         super (0,0,0,0,0, adventurerName);
@@ -27,11 +27,11 @@ public class Adventurer extends Creature {
         getStatus();
     }
     public int getStrength() {
-        return super.strength;
+        return super.getStrength();
     }
 
     public int getAgility() {
-        return super.agility;
+        return super.getAgility();
     }
 
 
@@ -44,19 +44,19 @@ public class Adventurer extends Creature {
     }
 
     public int getHealth() {
-        return super.health();
+        return super.health;
     }
 
     public boolean getIsAlive() {
         return super.isAlive;
     }
 
-    public static void setHealth(int health) {
-        Adventurer.health = health ;
+    public void setHealth(int health) {
+        super.setHealth(health);
     }
 
     public void setAlive(boolean alive) {
-        isAlive = alive;
+        this.isAlive = alive;
     }
     public void growl(){
         System.out.println(name + "Chaaaaarge !!!");
@@ -66,29 +66,30 @@ public class Adventurer extends Creature {
         System.out.println("Monster " + name + " attacked with damage " + attack);
         return attack;
     }
+    @Override
     public void getStatus() {
-        System.out.println("Hero of name: " + name + " of level: " + level + ".");
-        System.out.println("Health is: " + health + " of health (max level): " + maxLevelHealth + ".");
-        System.out.println("Strength is: " + strength + ". Attack is: " + attack + ".");
-        System.out.println("Agility is: " + agility + ". Armour is: " + armour + ".");
-        System.out.println("Money is: " + money + ".");
+        System.out.println("Hero of name: " + super.name + " of level: " + level + ".");
+        System.out.println("Health is: " + super.health + " of health (max level): " + maxLevelHealth + ".");
+        System.out.println("Strength is: " + super.strength + ". Attack is: " + super.attack + ".");
+        System.out.println("Agility is: " + super.agility + ". Armour is: " + super.armour + ".");
+        System.out.println("Money is: " + super.money + ".");
     }
 
-    public static int getMaxLevelHealth() {
-        return maxLevelHealth;
-    }
+//    public static int getMaxLevelHealth() {
+//        return maxLevelHealth;
+//    }
 
-    public static void setMaxLevelHealth() {
-        maxLevelHealth = maxLevelHealthArray[level];
-    }
+//    public static void setMaxLevelHealth() {
+//        maxLevelHealth = maxLevelHealthArray[level];
+//    }
+//
+//    public static int getMoney() {
+//        return money;
+//    }
 
-    public static int getMoney() {
-        return money;
-    }
-
-    public static void setMoney(int money) {
-        Adventurer.money += money;
-    }
+//    public static void setMoney(int money) {
+//        Adventurer.money += money;
+//    }
 
 
 

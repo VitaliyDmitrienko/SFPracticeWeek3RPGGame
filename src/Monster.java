@@ -1,7 +1,7 @@
 public abstract class Monster extends Creature{
 
     private int level=0;
-    private static int health=0;
+    private int health=0;
     private int armour=0;
     private int money=0;
     private int strength=0;
@@ -26,16 +26,16 @@ public abstract class Monster extends Creature{
         return attack;
     }
 
-    public static int getHealth() {
-        return health;
+    public int getHealth() {
+        return super.getHealth();
     }
 
     public boolean isAlive() {
         return isAlive;
     }
 
-    public static void setHealth(int health) {
-        Creature.setHealth(health);
+    public void setHealth(int health) {
+        super.setHealth(health);
     }
 
     public void setAlive(boolean alive) {
