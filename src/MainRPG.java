@@ -5,14 +5,18 @@ import java.util.Scanner;
 public class MainRPG {
 
     public static void main(String[] args) {
-        System.out.println ( "Hello world!" );
+        System.out.println ( "\nHello Player !!!" );
+        System.out.println ( "Now you must overcome all obstacles and rid the World from the Ancient Evil in the Heart of Dark Wood !!!" );
+        System.out.println ( "Ready Player One!!!\n" );
         startGame();
     }
 
     private static void startGame () {
-        System.out.println("< Advanced D&D Role-Playing Game >");
+        System.out.println("< Skill Factory Student's Team present >");
+        System.out.println("< \"There And Back Again\" Role-Playing Game >");
+        System.out.println("< Spirited by Advanced D&D Role-Playing Game's and many other Old School's God-Old-Games >\n");
         System.out.println("<1> Start new game.");
-        System.out.println("<2> Exit game.");
+        System.out.println("<2> Exit game.\n");
         Scanner scanner = new Scanner(System.in);
         int choose;
 

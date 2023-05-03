@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class Town {
 
 
-
-
     class Trader {
         int money = 1000;
         List<Item> inventory = new LinkedList<Item>();
@@ -20,56 +18,72 @@ public class Town {
         }
 
         static void visitTrader(Adventurer hero) {
-            System.out.println("You are inside General Store at trader desk.");
-            System.out.println("Choose your goal.\n");
-            System.out.println("<1> Buy item.");
-            System.out.println("<2> Sell item.");
-            System.out.println("<3> Check hero status.");
-            System.out.println("<4> Exit store and return to town.");
             Scanner scanner = new Scanner(System.in);
             int choose;
 
-            do { choose = scanner.nextInt();
-                switch (choose) {
-                    case (1): buyItem(); break;
-                    case (2): sellItem(); break;
-                    case (3): hero.getStatus(); break;
-                    case (4): visitTown(hero); break;
-                    default:
-                        System.out.println("Wrong input. Try right again.");
-                }
+            do {
+                System.out.println("You are inside General Store at trader desk.");
+                System.out.println("Choose your goal.\n");
+                System.out.println("<1> Buy item.");
+                System.out.println("<2> Sell item.");
+                System.out.println("<3> Check hero status.");
+                System.out.println("<4> Exit store and return to town.\n");
 
-            } while (choose <1 || choose >3);
+                do { choose = scanner.nextInt();
+                    switch (choose) {
+                        case (1) -> buyItem();
+                        case (2) -> sellItem();
+                        case (3) -> hero.getStatus();
+                        case (4) -> visitTown(hero);
+                        default -> System.out.println("Wrong input. Try right again.");
+                    }
+
+                } while (choose <1 || choose >4);
+            } while (choose != 4);
             visitTown(hero);
         }
     }
 
     class Inn {
-        static void sleep(Adventurer hero) {
-//            if (hero.getMoney() >= 15) {
-//                Adventurer.setHealth(Adventurer.getMaxLevelHealth());
-//                Adventurer.setMoney(-15);
-//            } else System.out.println("Not enough money to sleep. Get more money somewhere in other place.");
+        private static int innSleepCost = 15;
+
+        static void sleepInn(Adventurer hero) {
+            if (hero.getHealth() >= hero.getMaxLevelHealth()) {
+                System.out.println("No need to restore health. Your health ("+ hero.getHealth()
+                        +") is maximum of ("+ hero.getMaxLevelHealth()+").");
+            } else {
+                if (hero.getMoney() >= innSleepCost) {
+                    hero.restoreHealth();
+                    hero.setMoney(-innSleepCost);
+                    System.out.println("You spent "+ innSleepCost +" gold coins and sleep one night and full restore your health.");
+                    System.out.println("Your health is: " + hero.getHealth() + " of (max level health): " + hero.getMaxLevelHealth() + ".\n");
+                } else System.out.println("Not enough money to sleep. Get more money somewhere in other place.\n");
+            }
         }
 
         static void visitInn(Adventurer hero) {
-            System.out.println("You are inside local at bar desk.");
-            System.out.println("Choose your goal.\n");
-            System.out.println("<1> Sleep one night and restore health (cost 15 gold coins).");
-            System.out.println("<2> Check hero status.");
-            System.out.println("<3> Exit inn and return to town.");
             Scanner scanner = new Scanner(System.in);
             int choose;
 
-            do { choose = scanner.nextInt();
-                switch (choose) {
-                    case (1): sleep(hero); break;
-                    case (2): hero.getStatus(); break;
-                    case (3): visitTown(hero); break;
-                    default:  System.out.println("Wrong input. Try right again.");
-                }
+            do {
+                System.out.println();
+                System.out.println("You are inside local inn at bar desk.");
+                System.out.println("Choose your goal.\n");
+                System.out.println("<1> Sleep one night and restore health (cost " + innSleepCost + " gold coins).");
+                System.out.println("<2> Check hero status.");
+                System.out.println("<3> Exit inn and return to town.\n");
 
-            } while (choose <1 || choose >2);
+                do {
+                    choose = scanner.nextInt();
+                    switch (choose) {
+                        case (1) -> sleepInn(hero);
+                        case (2) -> hero.getStatus();
+                        case (3) -> visitTown(hero);
+                        default -> System.out.println("Wrong input. Try right again.");
+                    }
+
+                } while (choose < 1 || choose > 3);
+            } while (choose !=3);
             visitTown(hero);
 
 
@@ -77,38 +91,57 @@ public class Town {
     }
 
         class Temple {
-            static void restoreHealth() {
+            private static int templeRestoreHealthCost = 20;
+            private static int templeRemoveCurseCost = 30;
+            private static int templeBlessOfGodsCost = 50;
+
+            static void restoreHealthTemple(Adventurer hero) {
+                if (hero.getHealth() >= hero.getMaxLevelHealth()) {
+                    System.out.println("No need to restore health. Your health ("+
+                            hero.getHealth() +") is maximum of ("+ hero.getMaxLevelHealth()+").");
+                } else {
+                    if (hero.getMoney() >= templeRestoreHealthCost) {
+                        hero.restoreHealth();
+                        hero.setMoney(-templeRestoreHealthCost);
+                        System.out.println("You spent "+ templeRestoreHealthCost +" gold coins and Gods full restore your health.");
+                        System.out.println("Your health is: " + hero.getHealth() + " of (max level health): " + hero.getMaxLevelHealth() + ".\n");
+                    } else System.out.println("Not enough money to sleep. Get more money somewhere in other place.\n");
+                }
             }
-            static void removeCurses() {
-                System.out.println("Removing curse ...");
+            static void removeCursesTemple(Adventurer hero) {
+                System.out.println("Removing curse ...\n");
             }
-            static void prayGodsBless() {
-                System.out.println("Praying All Gods fo Bless ...");
+            static void prayGodsBlessTemple(Adventurer hero) {
+                System.out.println("Praying All Gods fo Bless ...\n");
             }
 
             static void visitTemple(Adventurer hero) {
-                System.out.println("You are inside Temple at All-Gods-Altar.");
-                System.out.println("Choose your goal.\n");
-                System.out.println("<1> Restore health (cost 20 gold coins).");
-                System.out.println("<2> Remove all curses (cost 20 gold coins).");
-                System.out.println("<3> Pray for Gods Bless (cost 30 gold coins).");
-                System.out.println("<4> Check hero status.");
-                System.out.println("<5> Exit store and return to town.");
                 Scanner scanner = new Scanner(System.in);
                 int choose;
 
-                do { choose = scanner.nextInt();
-                    switch (choose) {
-                        case (1): restoreHealth(); break;
-                        case (2): removeCurses(); break;
-                        case (3): prayGodsBless(); break;
-                        case (4): hero.getStatus(); break;
-                        case (5): visitTown(hero); break;
-                        default:
-                            System.out.println("Wrong input. Try right again.");
-                    }
+                do {
+                    System.out.println();
+                    System.out.println("You are inside Temple at All-Gods-Altar.");
+                    System.out.println("Choose your goal.\n");
+                    System.out.println("<1> Restore health (cost " + templeRestoreHealthCost + " gold coins).");
+                    System.out.println("<2> Remove all curses (cost " + templeRemoveCurseCost + " gold coins).");
+                    System.out.println("<3> Pray for Gods Bless (cost " + templeBlessOfGodsCost + " gold coins).");
+                    System.out.println("<4> Check hero status.");
+                    System.out.println("<5> Exit store and return to town.\n");
 
-                } while (choose <1 || choose >5);
+                    do { choose = scanner.nextInt();
+                        switch (choose) {
+                            case (1): restoreHealthTemple(hero); break;
+                            case (2): removeCursesTemple(hero); break;
+                            case (3): prayGodsBlessTemple(hero); break;
+                            case (4): hero.getStatus(); break;
+                            case (5): visitTown(hero); break;
+                            default:
+                                System.out.println("Wrong input. Try right again.");
+                        }
+
+                    } while (choose <1 || choose >5);
+                } while (choose != 5);
 
 
             }
@@ -119,30 +152,30 @@ public class Town {
         }
 
         public static void visitTown(Adventurer hero) {
-            System.out.println("You are enter into Great Town." +
-                    "You can visit local shops and offices." +
-                    "Choose your goal.\n");
-            System.out.println("<1> Visit Trader.");
-            System.out.println("<2> Visit Inn.");
-            System.out.println("<3> Visit Temple.");
-            System.out.println("<4> Check hero status.");
-            System.out.println("<5> Exit town and return to crossroad.\n");
             Scanner scanner = new Scanner(System.in);
             int choose = 0;
 
             do {
-                choose = scanner.nextInt();
-                switch (choose) {
-                    case (1): Trader.visitTrader(hero); break;
-                    case (2): Inn.visitInn(hero); break;
-                    case (3): Temple.visitTemple(hero); break;
-                    case (4): hero.getStatus(); break;
-                    case (5): StartPosition.onCrossRoads(hero); break;
-                    default:
-                        System.out.println("Wrong input. Try right again.");
+                System.out.println();
+                System.out.println("You are enter into Great Town. You can visit local shops and offices. Choose your goal.\n");
+                System.out.println("<1> Visit Trader.");
+                System.out.println("<2> Visit Inn.");
+                System.out.println("<3> Visit Temple.");
+                System.out.println("<4> Check hero status.");
+                System.out.println("<5> Exit town and return to crossroad.\n");
 
-                }
-            } while ((choose < 1) || (choose > 5));
+                do {
+                    choose = scanner.nextInt();
+                    switch (choose) {
+                        case (1) -> Trader.visitTrader(hero);
+                        case (2) -> Inn.visitInn(hero);
+                        case (3) -> Temple.visitTemple(hero);
+                        case (4) -> hero.getStatus();
+                        case (5) -> StartPosition.onCrossRoads(hero);
+                        default -> System.out.println("Wrong input. Try right again.");
+                    }
+                } while ((choose < 1) || (choose > 5));
+            } while (choose != 5);
 
         }
 
