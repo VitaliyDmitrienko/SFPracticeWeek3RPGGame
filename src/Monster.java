@@ -1,4 +1,4 @@
-public abstract class Monster extends Creature{
+public class Monster extends Creature{
 
 //    private int level=0;
 //    private int health=0;
@@ -11,19 +11,22 @@ public abstract class Monster extends Creature{
 //    private int attack=0;
 //    private String monsterName = "";
     private int damage = strength + level;
+    private int maxLevelHealth;
+
 
     public Monster(int level, int health, int armour, int strength, int agility, int money, int experience, String monsterName){
         super (level, health, armour, strength, agility, money , experience, monsterName );
+        this.maxLevelHealth = health;
         System.out.println("Monster " + monsterName + " was created");
     }
 
     public void growl(){
-        System.out.println(name + " growled");
+        System.out.println(super.name + " growled");
     }
 
     public int attack() {
         growl();
-        System.out.println("Monster " + name + " attacked with damage " + damage);
+        System.out.println("Monster " + super.name + " attacked with damage " + damage);
         return damage;
     }
 
@@ -31,12 +34,12 @@ public abstract class Monster extends Creature{
         return super.getHealth();
     }
 
-    public boolean isAlive() {
+    public boolean getIsAlive() {
         return isAlive;
     }
 
-    public void setHealth(int health) {
-        super.setHealth(health);
+    public void changeHealth(int changeHealth) {
+        super.health += changeHealth;
     }
 
     public void setAlive(boolean alive) {
@@ -48,5 +51,15 @@ public abstract class Monster extends Creature{
     }
 
 
+    public int getMaxLevelHealth() {
+        return maxLevelHealth;
+    }
+    public int getExperience() {
+        return experience;
+    }
+
+    public void setExperience(int exp) {
+        experience += exp;
+    }
 
 }

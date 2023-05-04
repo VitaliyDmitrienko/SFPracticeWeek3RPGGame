@@ -14,6 +14,15 @@ public class Creature {
 //    protected int attack;
 
     protected String name = "";
+
+    public int getExperience() {
+        return this.experience;
+    }
+
+    public void setExperience(int exp) {
+        this.experience += exp;
+    }
+
     int experience;
 
     protected boolean isAlive = true;
@@ -27,6 +36,7 @@ public class Creature {
         this.agility = agility;
         this.money = money;
         this.name = name;
+        this.experience = experience;
     }
 
     public int getAgility() {

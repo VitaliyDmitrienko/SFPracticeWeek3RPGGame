@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ec5c664-f5d4-4a84-8bed-d3421c44fa74" name="Changes" comment="5th commit. CreateHero is work. Visit to Town is work.">
+    <list default="true" id="2ec5c664-f5d4-4a84-8bed-d3421c44fa74" name="Changes" comment="6th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (only restore health work).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Adventurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Adventurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BattleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BattleField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DarkWood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DarkWood.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainRPG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainRPG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Town.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Town.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,15 +36,15 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Download/JAVA/intellij-rainbow-brackets-2023.2.7/intellij-rainbow-brackets/lib/intellij-rainbow-brackets-2023.2.7.jar",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Download/JAVA/intellij-rainbow-brackets-2023.2.7/intellij-rainbow-brackets/lib/intellij-rainbow-brackets-2023.2.7.jar&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
@@ -105,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683032458315</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="6th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (only restore health work).">
+      <created>1683128029369</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683128029369</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -117,6 +127,18 @@
     <MESSAGE value="3rd commit. StartPosition still don't work." />
     <MESSAGE value="2nd commit. Create Hero &amp; start Position." />
     <MESSAGE value="5th commit. CreateHero is work. Visit to Town is work." />
-    <option name="LAST_COMMIT_MESSAGE" value="5th commit. CreateHero is work. Visit to Town is work." />
+    <MESSAGE value="6th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (only restore health work)." />
+    <option name="LAST_COMMIT_MESSAGE" value="6th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (only restore health work)." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/BattleField.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

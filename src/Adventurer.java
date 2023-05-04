@@ -22,7 +22,7 @@ public class Adventurer extends Creature {
 //    private String name = "";
 
     public Adventurer(int level, int health, int armour, int strength, int agility, int money, int experience, String name){
-        super (level, health, armour, strength, agility, money,experience, name);
+        super (level, health, armour, strength, agility, money, experience, name);
 //        this.experience = ex;
         System.out.println ("Great Adventurer " + name + " appear in the World!!!");
         System.out.println();
@@ -53,8 +53,8 @@ public class Adventurer extends Creature {
         return super.isAlive;
     }
 
-    public void setHealth(int health) {
-        super.health += health;
+    public void changeHealth(int changeHealth) {
+        super.health += changeHealth;
     }
     public void restoreHealth() {
         super.health = maxLevelHealth;
@@ -68,16 +68,16 @@ public class Adventurer extends Creature {
     }
 
     public int attack() {
-        System.out.println("Monster " + name + " attacked with damage " + damage);
+        System.out.println("Hero " + name + " attacked with damage " + damage);
         return damage;
     }
     @Override
     public void getStatus() {
         System.out.println("Hero of name: " + super.name + " of level: " + super.level + ". Hero status is: " + super.isAlive + ".");
-        System.out.println("Health is: " + health + " of (max level health): " + maxLevelHealth + ".");
-        System.out.println("Strength is: " + strength + ". Attack(damage) is: " + damage + ".");
-        System.out.println("Agility is: " + agility + ". Armour is: " + armour + ".");
-        System.out.println("Money is: " + money + " gold coins. Experience is: " + experience + " of (max level experience): " + maxLevelExperience + ".");
+        System.out.println("Health is: " + super.health + " of (max level health): " + super.maxLevelHealth + ".");
+        System.out.println("Strength is: " + super.strength + ". Attack(damage) is: " + damage + ".");
+        System.out.println("Agility is: " + super.agility + ". Armour is: " + super.armour + ".");
+        System.out.println("Money is: " + super.money + " gold coins. Experience is: " + super.experience + " of (max level experience): " + maxLevelExperience + ".");
     }
 
     public int getMaxLevelHealth() {
@@ -95,6 +95,15 @@ public class Adventurer extends Creature {
     public void setMoney(int money) {
         super.money += money;
     }
+
+    public int getExperience() {
+        return super.experience;
+    }
+
+    public void setExperience(int experience) {
+        super.experience += experience;
+    }
+
 
 
 
