@@ -94,6 +94,8 @@ public class Town {
             private static int templeRestoreHealthCost = 20;
             private static int templeRemoveCurseCost = 30;
             private static int templeBlessOfGodsCost = 50;
+            private static int templeLevelUpCost = 10;
+
 
             static void restoreHealthTemple(Adventurer hero) {
                 if (hero.getHealth() >= hero.getMaxLevelHealth()) {
@@ -114,6 +116,19 @@ public class Town {
             static void prayGodsBlessTemple(Adventurer hero) {
                 System.out.println("Praying All Gods fo Bless ...\n");
             }
+            static void levelUpHero (Adventurer hero) {
+                if (hero.getMoney() >= templeLevelUpCost) {
+                    if (hero.getExperience() >= hero.getMaxLevelExperience()) {
+                        hero.setMoney(-templeLevelUpCost);
+                        hero.setLevelUpHero();
+                        System.out.println("God bless your Hero to leveled up.");
+                        System.out.println("You spent "+ templeLevelUpCost +" gold coins and Gods full restore your health.");
+                        System.out.println("Hero of name: " + hero.getAdventurerName() + " of level: " + hero.getLevel() + ". Hero status is: " + hero.getIsAlive() + ".");
+                        System.out.println("Health is: " + hero.getHealth() + " of (max level health): " + hero.getMaxLevelHealth() + ".");
+
+                    }
+                } else System.out.println("Not enough money to sleep. Get more money somewhere in other place.\n");
+            }
 
             static void visitTemple(Adventurer hero) {
                 Scanner scanner = new Scanner(System.in);
@@ -126,22 +141,24 @@ public class Town {
                     System.out.println("<1> Restore health (cost " + templeRestoreHealthCost + " gold coins).");
                     System.out.println("<2> Remove all curses (cost " + templeRemoveCurseCost + " gold coins).");
                     System.out.println("<3> Pray for Gods Bless (cost " + templeBlessOfGodsCost + " gold coins).");
-                    System.out.println("<4> Check hero status.");
-                    System.out.println("<5> Exit store and return to town.\n");
+                    System.out.println("<4> Level Up Hero (cost " + templeLevelUpCost + " gold coins).");
+                    System.out.println("<5> Check hero status.");
+                    System.out.println("<6> Exit store and return to town.\n");
 
                     do { choose = scanner.nextInt();
                         switch (choose) {
                             case (1): restoreHealthTemple(hero); break;
                             case (2): removeCursesTemple(hero); break;
                             case (3): prayGodsBlessTemple(hero); break;
-                            case (4): hero.getStatus(); break;
-                            case (5): visitTown(hero); break;
+                            case (4): levelUpHero(hero); break;
+                            case (5): hero.getStatus(); break;
+                            case (6): visitTown(hero); break;
                             default:
                                 System.out.println("Wrong input. Try right again.");
                         }
 
-                    } while (choose <1 || choose >5);
-                } while (choose != 5);
+                    } while (choose <1 || choose >6);
+                } while (choose !=6);
 
 
             }

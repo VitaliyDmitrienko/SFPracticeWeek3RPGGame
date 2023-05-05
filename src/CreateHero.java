@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class CreateHero {
      public static void main(String[] args) {}
 
-     public static String startGame() {
+     public static String createHero() {
          String inputName="";
 
          System.out.println("You start a big Adventure.\n" +
