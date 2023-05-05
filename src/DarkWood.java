@@ -1,9 +1,9 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class DarkWood {
 
-    private static int[] monsterDeepForestArray = {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10};
+//    private static int[] monsterDeepForestArray = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10};
+    private static List<Integer> monsterDeepForestArray = Arrays.asList(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10);
 
 
     public static void visitWood(Adventurer hero) {
@@ -33,12 +33,15 @@ public class DarkWood {
     }
 
     private static void moveDeepForest(Adventurer hero) {
-        int currentForestPosition = 0;
+//        int currentForestPosition = 0;
+//        int currentForestPosition = Arrays.binarySearch(monsterDeepForestArray,0);
+        int currentForestPosition = monsterDeepForestArray.lastIndexOf(0);
         Scanner scanner = new Scanner ( System.in );
         int choose;
 
         do {
-            if (monsterDeepForestArray[currentForestPosition] == 0) {
+            if (monsterDeepForestArray.get(currentForestPosition) == 0) {
+                System.out.println("You move at "+ currentForestPosition + " step(s) into deep forest.");
                 System.out.println ("Silence around. You can wait.\n");
                 System.out.println ( "<1> Continue deep forest." );
                 System.out.println ( "<2> Check hero status." );
@@ -57,9 +60,9 @@ public class DarkWood {
 
             } else {
 
-                Monster monster = generateMonster ( monsterDeepForestArray[currentForestPosition] );
+                Monster monster = generateMonster ( monsterDeepForestArray.get(currentForestPosition) );
                 BattleField.fight ( monster, hero );
-                if (hero.getIsAlive ()) monsterDeepForestArray[currentForestPosition] = 0;
+                if (hero.getIsAlive ()) monsterDeepForestArray.set(currentForestPosition, 0);
 
             }
 

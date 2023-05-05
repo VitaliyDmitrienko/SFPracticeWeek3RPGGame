@@ -17,7 +17,7 @@ public class Monster extends Creature{
     public Monster(int level, int health, int armour, int strength, int agility, int money, int experience, String monsterName){
         super (level, health, armour, strength, agility, money , experience, monsterName );
         this.maxLevelHealth = health;
-        System.out.println("Monster " + monsterName + " was created");
+//        System.out.println("Monster " + monsterName + " was created");
     }
 
     public void growl(){
@@ -42,7 +42,7 @@ public class Monster extends Creature{
         super.health += changeHealth;
     }
 
-    public void setAlive(boolean alive) {
+    public void setIsAlive(boolean alive) {
         isAlive = alive;
     }
 

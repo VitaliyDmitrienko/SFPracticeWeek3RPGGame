@@ -74,7 +74,7 @@ public class Adventurer extends Creature {
     @Override
     public void getStatus() {
         System.out.println("Hero of name: " + super.name + " of level: " + super.level + ". Hero status is: " + super.isAlive + ".");
-        System.out.println("Health is: " + super.health + " of (max level health): " + super.maxLevelHealth + ".");
+        System.out.println("Health is: " + super.health + " of (max level health): " + maxLevelHealth + ".");
         System.out.println("Strength is: " + super.strength + ". Attack(damage) is: " + damage + ".");
         System.out.println("Agility is: " + super.agility + ". Armour is: " + super.armour + ".");
         System.out.println("Money is: " + super.money + " gold coins. Experience is: " + super.experience + " of (max level experience): " + maxLevelExperience + ".");
@@ -99,12 +99,19 @@ public class Adventurer extends Creature {
     public int getExperience() {
         return super.experience;
     }
+    public int getMaxLevelExperience() {
+        return experienceLevelCapArray[level];
+    }
 
     public void setExperience(int experience) {
         super.experience += experience;
     }
+    public void setLevelUpHero () {
+        super.level++;
+    }
 
 
-
-
+    public int getLevel() {
+        return super.level;
+    }
 }
