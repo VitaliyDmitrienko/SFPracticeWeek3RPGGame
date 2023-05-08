@@ -31,7 +31,7 @@ public class MainRPG {
         do {
             choose = scanner.nextInt();
             switch (choose) {
-                case (2)-> System.out.println("You exit a Game. See You later !!!");
+                case (2)-> exitGame();
                 case (1)-> {String heroName = CreateHero.createHero();
                     Adventurer hero = new Adventurer(0,25,5,5,5,100, 0, heroName);
 //                    hero.getStatus();
@@ -43,6 +43,22 @@ public class MainRPG {
         }
         while (choose <1 || choose >2);
 
+
+    }
+
+    private static void exitGame() {
+        System.out.println("\nAre you sure?");
+        System.out.println("<1> No exit.");
+        System.out.println("<2> Yes, exit.\n");
+        Scanner scanner = new Scanner(System.in);
+        int chooseExit;
+        do {
+            chooseExit = scanner.nextInt();
+            if (chooseExit == 1) startGame();
+            else if (chooseExit == 2) System.out.println("You exit a Game. See You later !!!");
+            else System.out.println("Try right input.");;
+
+        } while (chooseExit !=2);
 
     }
 

@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2ec5c664-f5d4-4a84-8bed-d3421c44fa74" name="Changes" comment="7th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (only restore health work). Class DarkWood partially work. Class BattleField is work correctly (need add start battle by initiative hero/monster + add critical strike + defense by AC).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Adventurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Adventurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Battle.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BattleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BattleField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CreateHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CreateHero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DarkWood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DarkWood.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainRPG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainRPG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Town.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Town.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +40,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/Download/JAVA/intellij-rainbow-brackets-2023.2.7/intellij-rainbow-brackets/lib/intellij-rainbow-brackets-2023.2.7.jar",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>

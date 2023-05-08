@@ -125,6 +125,7 @@ public class Town {
                         System.out.println("You spent "+ templeLevelUpCost +" gold coins and Gods full restore your health.");
                         System.out.println("Hero of name: " + hero.getAdventurerName() + " of level: " + hero.getLevel() + ". Hero status is: " + hero.getIsAlive() + ".");
                         System.out.println("Health is: " + hero.getHealth() + " of (max level health): " + hero.getMaxLevelHealth() + ".");
+                        System.out.println("Money is: " + hero.getMoney() + " gold coins. Experience is: " + hero.getExperience() + " of (max level experience): " + hero.getMaxLevelExperience() + ".");
 
                     }
                 } else System.out.println("Not enough money to sleep. Get more money somewhere in other place.\n");

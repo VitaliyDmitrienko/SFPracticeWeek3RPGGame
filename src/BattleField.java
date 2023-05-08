@@ -11,7 +11,6 @@ public class BattleField {
         monster.growl();
         System.out.println ("Suddenly on your way appear " + monster.getMonsterName () + ". He is attack you. Battle begin !!!");
         System.out.println();
-        System.out.println("Step battle is: " + moveCount);
 
         if (adventurer.getAgility() >= monster.getAgility()) {
             System.out.println("Your hero faster, than monster and can attack first.");
@@ -21,6 +20,8 @@ public class BattleField {
 
 
         do {
+            System.out.println("Step battle is: " + moveCount);
+
             if (!monster.getIsAlive() && adventurer.getIsAlive()) {
                 System.out.println("Monster " + monster.getMonsterName () + " is dead. Hero win!");
                 System.out.println();
@@ -95,10 +96,10 @@ public class BattleField {
 
     private static int isCriticalStrike(Creature creature) {
         Random random = new Random();
-        int x = random.nextInt(100)+1;
+        int x = random.nextInt(30)+1;
 
-        if (x >= creature.getAgility()*3) return 3;
-        if (x <= creature.getAgility()) return 1;
+        if (x <= creature.getAgility()) return 3;
+        if (x <= creature.getAgility()*3 && x > creature.getAgility()) return 1;
         else return 0;
 
     }

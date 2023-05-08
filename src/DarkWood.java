@@ -1,9 +1,9 @@
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
+//import java.util.concurrent.atomic.AtomicInteger;
 
 public class DarkWood {
 
-    static final List<Integer> monsterDeepForestArray = Arrays.asList(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10);
+    static final List<Integer> monsterDeepForestArray = Arrays.asList(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1,1,10);
 
 
     public static void visitWood(Adventurer hero) {
@@ -35,7 +35,7 @@ public class DarkWood {
     private static void moveDeepForest(Adventurer hero) {
         int currentForestPosition = monsterDeepForestArray.lastIndexOf(0);
         Scanner scanner = new Scanner ( System.in );
-        int choose2=0;
+        int choose2;
 //        AtomicInteger battleResult = new AtomicInteger();
         int battleResult=0;
 
@@ -78,24 +78,26 @@ public class DarkWood {
 //                battle.start();    //new Thread run
 //                if (battleResult.get() !=0) battle.interrupt();
 
-//                if (battleResult.get() > 0) monsterDeepForestArray.set(currentForestPosition, 0);
+                if (battleResult > 0) monsterDeepForestArray.set(currentForestPosition, 0);
 
 
                 if (battleResult < 0) {
                     System.out.println();
                     System.out.println("Your Hero fall in battle at deep forest trying clear heart of wood from Ancient Evil.");
                     System.out.println("Call a new Hero to finish that Great Mission.");
+                    System.out.println();
                     MainRPG.startGame();
                 } else if (battleResult > 0) {
                     System.out.println();
                     System.out.println("Your Hero win the battle and ready to continue raid into deep forest.");
+                    System.out.println();
                 }
 
 
             }
 
 
-        } while (battleResult == 0);
+        } while (battleResult >= 0);
 
 
 
