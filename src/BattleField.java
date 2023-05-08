@@ -20,7 +20,7 @@ public class BattleField {
 
 
         do {
-            System.out.println("Step battle is: " + moveCount);
+            System.out.println(" === Step battle is: " + moveCount + " ===");
 
             if (!monster.getIsAlive() && adventurer.getIsAlive()) {
                 System.out.println("Monster " + monster.getMonsterName () + " is dead. Hero win!");

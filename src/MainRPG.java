@@ -34,6 +34,7 @@ public class MainRPG {
                 case (2)-> exitGame();
                 case (1)-> {String heroName = CreateHero.createHero();
                     Adventurer hero = new Adventurer(0,25,5,5,5,100, 0, heroName);
+                    DarkWood.monsterDeepForestArraySetter();
 //                    hero.getStatus();
                     StartPosition.onCrossRoads(hero);
                     }

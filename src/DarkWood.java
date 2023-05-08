@@ -3,7 +3,10 @@ import java.util.*;
 
 public class DarkWood {
 
-    static final List<Integer> monsterDeepForestArray = Arrays.asList(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1,1,10);
+    static final List<Integer> monsterDeepForestArray = new ArrayList<>();
+    public static void monsterDeepForestArraySetter() {
+        List<Integer> monsterDeepForestArray = Arrays.asList(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,2,2,2,2,10);
+    }
 
 
     public static void visitWood(Adventurer hero) {
@@ -111,12 +114,12 @@ public class DarkWood {
 
         switch (levelMonster) {
             case (1) -> {
-                if (x > 0) generatedMonster = new Monster ( 1, 15, 3, 3, 3, 20, 10, "Skeleton" );
-                else generatedMonster = new Monster ( 1, 20, 4, 3, 2, 25, 15, "Orc" );
+                if (x > 0) generatedMonster = new Monster ( 1, 15, 3, 3, 4, 20, 10, "Skeleton" );
+                else generatedMonster = new Monster ( 1, 20, 4, 4, 3, 25, 15, "Orc" );
             }
             case (2) -> {
-                if (x > 0) generatedMonster = new Monster ( 2, 25, 3, 3, 3, 30, 20, "Skeleton" );
-                else generatedMonster = new Monster ( 2, 30, 4, 3, 2, 35, 25, "Orc" );
+                if (x > 0) generatedMonster = new Monster ( 2, 30, 4, 4, 5, 30, 20, "Skeleton" );
+                else generatedMonster = new Monster ( 2, 35, 4, 5, 4, 35, 25, "Orc" );
 
             }
             case (10) -> {
