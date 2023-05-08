@@ -3,8 +3,8 @@ import java.lang.reflect.Array;
 public class Adventurer extends Creature {
 
 //    private int level;
-    private int [] maxLevelHealthArray = {25,50,100,200,300,400,500,600,700,800,900,1000};
-    private int [] experienceLevelCapArray = {25,50,100,200,300,400,500,600,700,800,900,1000};
+    private int [] maxLevelHealthArray = {25,50,75,100,125,150,200,250,300,400,500,600};
+    private int [] experienceLevelCapArray = {25,50,100,150,200,300,500,600,700,800,900,1000};
 //    private int health;
 
 

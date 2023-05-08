@@ -1,9 +1,15 @@
 import java.util.*;
-//import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class DarkWood {
 
-    static final List<Integer> monsterDeepForestArray = Arrays.asList(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1,1,10);
+    static List<Integer> monsterDeepForestArray = new ArrayList<>();
+    static List<Integer> monsterDeepForestArrayDefault = Arrays.asList(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,2,2,2,2,10);
+
+    // List initialiser for cause, if you current hero fall,so you need create a new hero ...
+    public static void monsterDeepForestArraySetter() {
+        monsterDeepForestArray = monsterDeepForestArrayDefault;
+    }
 
 
     public static void visitWood(Adventurer hero) {
@@ -36,8 +42,8 @@ public class DarkWood {
         int currentForestPosition = monsterDeepForestArray.lastIndexOf(0);
         Scanner scanner = new Scanner ( System.in );
         int choose2;
-//        AtomicInteger battleResult = new AtomicInteger();
-        int battleResult=0;
+        AtomicInteger battleResult = new AtomicInteger();
+//        int battleResult=0;
 
         do {
             if (monsterDeepForestArray.get(currentForestPosition) == 0) {
@@ -64,30 +70,30 @@ public class DarkWood {
 
                 //Creating new Thread
                 // this method will run in side thread
-//                Thread battle = new Thread(() -> {
+                Thread battle = new Thread(() -> {
 
-//                    System.out.println("Привет из побочного потока!");
-//                    Thread currentThread = Thread.currentThread();
-//                    ThreadGroup threadGroup = currentThread.getThreadGroup();
-//                    System.out.println("Thread: " + currentThread.getName());
-//                    System.out.println("Thread Group: " + threadGroup.getName());
-//                    System.out.println("Parent Group: " + threadGroup.getParent().getName());
-                battleResult = BattleField.fight(monster,hero);
-//                    battleResult.set(BattleField.fight(monster, hero));
-//                });
-//                battle.start();    //new Thread run
+                    System.out.println("Привет из побочного потока!");
+                    Thread currentThread = Thread.currentThread();
+                    ThreadGroup threadGroup = currentThread.getThreadGroup();
+                    System.out.println("Thread: " + currentThread.getName());
+                    System.out.println("Thread Group: " + threadGroup.getName());
+                    System.out.println("Parent Group: " + threadGroup.getParent().getName());
+//                battleResult = BattleField.fight(monster,hero);
+                    battleResult.set(BattleField.fight(monster, hero));
+                });
+                battle.start();    //new Thread run
 //                if (battleResult.get() !=0) battle.interrupt();
 
-                if (battleResult > 0) monsterDeepForestArray.set(currentForestPosition, 0);
+                if (battleResult.get() > 0) monsterDeepForestArray.set(currentForestPosition, 0);
 
 
-                if (battleResult < 0) {
+                if (battleResult.get() < 0) {
                     System.out.println();
                     System.out.println("Your Hero fall in battle at deep forest trying clear heart of wood from Ancient Evil.");
                     System.out.println("Call a new Hero to finish that Great Mission.");
                     System.out.println();
                     MainRPG.startGame();
-                } else if (battleResult > 0) {
+                } else if (battleResult.get() > 0) {
                     System.out.println();
                     System.out.println("Your Hero win the battle and ready to continue raid into deep forest.");
                     System.out.println();
@@ -97,7 +103,7 @@ public class DarkWood {
             }
 
 
-        } while (battleResult >= 0);
+        } while (battleResult.get() >= 0);
 
 
 
@@ -111,12 +117,12 @@ public class DarkWood {
 
         switch (levelMonster) {
             case (1) -> {
-                if (x > 0) generatedMonster = new Monster ( 1, 15, 3, 3, 3, 20, 10, "Skeleton" );
-                else generatedMonster = new Monster ( 1, 20, 4, 3, 2, 25, 15, "Orc" );
+                if (x > 0) generatedMonster = new Monster ( 1, 15, 3, 3, 4, 20, 10, "Skeleton" );
+                else generatedMonster = new Monster ( 1, 20, 4, 4, 3, 25, 15, "Orc" );
             }
             case (2) -> {
-                if (x > 0) generatedMonster = new Monster ( 2, 25, 3, 3, 3, 30, 20, "Skeleton" );
-                else generatedMonster = new Monster ( 2, 30, 4, 3, 2, 35, 25, "Orc" );
+                if (x > 0) generatedMonster = new Monster ( 2, 30, 4, 4, 5, 30, 20, "Skeleton" );
+                else generatedMonster = new Monster ( 2, 35, 4, 5, 4, 35, 25, "Orc" );
 
             }
             case (10) -> {

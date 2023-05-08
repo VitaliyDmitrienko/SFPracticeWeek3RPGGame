@@ -20,7 +20,7 @@ public class BattleField {
 
 
         do {
-            System.out.println("Step battle is: " + moveCount);
+            System.out.println(" === Step battle is: " + moveCount + " ===");
 
             if (!monster.getIsAlive() && adventurer.getIsAlive()) {
                 System.out.println("Monster " + monster.getMonsterName () + " is dead. Hero win!");
@@ -78,7 +78,8 @@ public class BattleField {
                      System.out.println("Hero is unwounded. Your health is: " + adventurer.health + " of (max level health): " + adventurer.getMaxLevelHealth() + ".");
                  }
             } moveCount++;
-         } while (adventurer.getIsAlive () && monster.getIsAlive());
+//         } while (adventurer.getIsAlive() && monster.getIsAlive());
+         } while (adventurer.health >0 && monster.health >0);
 
         if (adventurer.getIsAlive ()) {
             System.out.println();
