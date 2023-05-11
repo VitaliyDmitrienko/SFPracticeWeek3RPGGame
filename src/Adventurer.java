@@ -2,21 +2,13 @@ import java.lang.reflect.Array;
 
 public class Adventurer extends Creature {
 
-//    private int level;
     private int [] maxLevelHealthArray = {25,50,75,100,125,150,200,250,300,400,500,600};
     private int [] experienceLevelCapArray = {25,50,100,150,200,300,500,600,700,800,900,1000};
-//    private int health;
-
-
     private int maxLevelHealth = maxLevelHealthArray[level];
-
     private int maxLevelExperience = experienceLevelCapArray[level];
-//    private int armour;
-//    private int money;
-//    private int strength;
-//    private int agility;
-//    private int experience=10;
-//    private boolean isAlive = true;
+
+//    0-reserved, 1-Small healing potion, 2-Middle healing potion, 3-Great healing potion
+    private int [] quickItemsInventory = {0,0,0,0,0,0};
     private int damage = strength + level;
 
 
@@ -28,6 +20,24 @@ public class Adventurer extends Creature {
         System.out.println();
         getStatus();
     }
+
+    public void checkQuickSlotInventory() {
+        if (quickItemsInventory[1] > 0 )
+            System.out.println("You have " + quickItemsInventory[1] + " small healing potion (+10 hp) to can instant restore your health in battle.");
+        if (quickItemsInventory[2] > 0 )
+            System.out.println("You have " + quickItemsInventory[2] + " middle healing potion (+25 hp) to can instant restore your health in battle.");
+        if (quickItemsInventory[3] > 0 )
+            System.out.println("You have " + quickItemsInventory[3] + " great healing potion (+50 hp) to can instant restore your health in battle.");
+    }
+
+    public int getQuickItemsInventory(int inventorySlot) {
+        return this.quickItemsInventory[inventorySlot];
+    }
+
+    public void setQuickItemsInventory(int inventorySlot, int inventorySlotCount) {
+        this.quickItemsInventory[inventorySlot] = inventorySlotCount;
+    }
+
 
     public void setMaxLevelExperience() {
         this.maxLevelExperience = experienceLevelCapArray[level];
