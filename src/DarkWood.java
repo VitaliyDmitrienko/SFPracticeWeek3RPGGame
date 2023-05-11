@@ -26,7 +26,13 @@ public class DarkWood {
             do {
                 choose1 = scanner.nextInt ();
                 switch (choose1) {
-                    case (1) -> moveDeepForest ( hero );
+                    case (1) -> {
+                        try {
+                            moveDeepForest ( hero );
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
                     case (2) -> hero.getStatus ();
                     case (3) -> StartPosition.onCrossRoads ( hero );
                     default -> System.out.println ( "Wrong input. Try right again." );
@@ -38,7 +44,7 @@ public class DarkWood {
 
     }
 
-    private static void moveDeepForest(Adventurer hero) {
+    private static void moveDeepForest(Adventurer hero) throws InterruptedException {
         int currentForestPosition = monsterDeepForestArray.lastIndexOf(0);
         Scanner scanner = new Scanner ( System.in );
         int choose2;
@@ -71,18 +77,22 @@ public class DarkWood {
                 //Creating new Thread
                 // this method will run in side thread
                 Thread battle = new Thread(() -> {
+//  Debug logging
+//                    System.out.println("Привет из побочного потока!");
+//                    Thread currentThread = Thread.currentThread();
+//                    ThreadGroup threadGroup = currentThread.getThreadGroup();
+//                    System.out.println("Thread: " + currentThread.getName());
+//                    System.out.println("Thread Group: " + threadGroup.getName());
+//                    System.out.println("Parent Group: " + threadGroup.getParent().getName());
 
-                    System.out.println("Привет из побочного потока!");
-                    Thread currentThread = Thread.currentThread();
-                    ThreadGroup threadGroup = currentThread.getThreadGroup();
-                    System.out.println("Thread: " + currentThread.getName());
-                    System.out.println("Thread Group: " + threadGroup.getName());
-                    System.out.println("Parent Group: " + threadGroup.getParent().getName());
+//  single-Thread version
 //                battleResult = BattleField.fight(monster,hero);
+
+//  multi-Thread version
                     battleResult.set(BattleField.fight(monster, hero));
                 });
-                battle.start();    //new Thread run
-//                if (battleResult.get() !=0) battle.interrupt();
+                battle.start();    //new side Thread run
+                battle.join();    //sync main Thread / new side Thread
 
                 if (battleResult.get() > 0) monsterDeepForestArray.set(currentForestPosition, 0);
 

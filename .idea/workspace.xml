@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ec5c664-f5d4-4a84-8bed-d3421c44fa74" name="Changes" comment="7th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (only restore health work). Class DarkWood partially work. Class BattleField is work correctly (need add start battle by initiative hero/monster + add critical strike + defense by AC).">
+    <list default="true" id="2ec5c664-f5d4-4a84-8bed-d3421c44fa74" name="Changes" comment="12th commit. Class DarkWood: while run BattleField in new Thread2 get endless loop fight and freeze. Why?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BattleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BattleField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DarkWood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DarkWood.java" afterDir="false" />
@@ -32,15 +32,15 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Download/JAVA/intellij-rainbow-brackets-2023.2.7/intellij-rainbow-brackets/lib/intellij-rainbow-brackets-2023.2.7.jar",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Download/JAVA/intellij-rainbow-brackets-2023.2.7/intellij-rainbow-brackets/lib/intellij-rainbow-brackets-2023.2.7.jar&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
@@ -118,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683216609862</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="12th commit. Class DarkWood: while run BattleField in new Thread2 get endless loop fight and freeze. Why?">
+      <created>1683730916541</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683730916541</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,7 +150,9 @@
     <MESSAGE value="5th commit. CreateHero is work. Visit to Town is work." />
     <MESSAGE value="6th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (only restore health work)." />
     <MESSAGE value="7th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (only restore health work). Class DarkWood partially work. Class BattleField is work correctly (need add start battle by initiative hero/monster + add critical strike + defense by AC)." />
-    <option name="LAST_COMMIT_MESSAGE" value="7th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (only restore health work). Class DarkWood partially work. Class BattleField is work correctly (need add start battle by initiative hero/monster + add critical strike + defense by AC)." />
+    <MESSAGE value="8th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (add Hero Level Up). Class DarkWood partially work (fixed minor bugs). Class BattleField is partially work correctly (need add start battle by initiative hero/monster + add critical strike + defense by AC)." />
+    <MESSAGE value="12th commit. Class DarkWood: while run BattleField in new Thread2 get endless loop fight and freeze. Why?" />
+    <option name="LAST_COMMIT_MESSAGE" value="12th commit. Class DarkWood: while run BattleField in new Thread2 get endless loop fight and freeze. Why?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -152,6 +161,26 @@
           <url>file://$PROJECT_DIR$/src/BattleField.java</url>
           <line>80</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DarkWood.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/DarkWood.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/BattleField.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/BattleField.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

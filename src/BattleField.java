@@ -78,8 +78,8 @@ public class BattleField {
                      System.out.println("Hero is unwounded. Your health is: " + adventurer.health + " of (max level health): " + adventurer.getMaxLevelHealth() + ".");
                  }
             } moveCount++;
-//         } while (adventurer.getIsAlive() && monster.getIsAlive());
-         } while (adventurer.health >0 && monster.health >0);
+         } while (adventurer.getIsAlive() && monster.getIsAlive());
+//         } while (adventurer.getHealth() > 0 && monster.getHealth() > 0);
 
         if (adventurer.getIsAlive ()) {
             System.out.println();
