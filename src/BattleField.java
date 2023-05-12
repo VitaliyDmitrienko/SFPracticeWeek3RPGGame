@@ -1,12 +1,15 @@
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class BattleField {
 
     public static int fight(Monster monster, Adventurer adventurer)  {
+        Scanner scanner = new Scanner(System.in);
+        int input;
         int firstAttackHero=0;
         int criticalDamage;
-        int moveCount=1;
+        int stepBattleCounter=1;
 
         monster.growl();
         System.out.println ("Suddenly on your way appear " + monster.getMonsterName () + ". He is attack you. Battle begin !!!");
@@ -20,7 +23,7 @@ public class BattleField {
 
 
         do {
-            System.out.println(" === Step battle is: " + moveCount + " ===");
+            System.out.println(" === Step battle is: " + stepBattleCounter + " ===");
 
             if (!monster.getIsAlive() && adventurer.getIsAlive()) {
                 System.out.println("Monster " + monster.getMonsterName () + " is dead. Hero win!");
@@ -77,9 +80,34 @@ public class BattleField {
                      System.out.println("Monster " + monster.getMonsterName() + " is missed and can't deal damage to Hero.");
                      System.out.println("Hero is unwounded. Your health is: " + adventurer.health + " of (max level health): " + adventurer.getMaxLevelHealth() + ".");
                  }
-            } moveCount++;
+            }
+
+
+            do {
+                System.out.println("At the end of " + stepBattleCounter + " step of battle you can take a breath and set pause.\n");
+                do {
+                      System.out.println ( "<1> Check hero status.");
+                      System.out.println ( "<2> Check hero quick item(s).");
+                      if (!adventurer.isEmptyQuickItemsInventory()) System.out.println( "<3> Use hero quick item(s).");
+                      System.out.println ( "<4> Cancel pause and return to battle.\n" );
+
+                      input = scanner.nextInt();
+                     switch (input) {
+                         case (1) -> adventurer.getStatus();
+                         case (2) -> adventurer.checkQuickSlotInventory ();
+                         case (3) -> {if (!adventurer.isEmptyQuickItemsInventory()) adventurer.useQuickItemsInventory();}
+                         case (4) -> System.out.println("Get ready !!! Battle is resume !!!");
+                         default -> System.out.println("Wrong choose. Try right input again.");
+                     }
+
+                 } while (input != 4);
+
+
+             } while (input != 4 && monster.getIsAlive());
+
+             stepBattleCounter++;
+
          } while (adventurer.getIsAlive() && monster.getIsAlive());
-//         } while (adventurer.getHealth() > 0 && monster.getHealth() > 0);
 
         if (adventurer.getIsAlive ()) {
             System.out.println();
@@ -99,7 +127,7 @@ public class BattleField {
         Random random = new Random();
         int x = random.nextInt(30)+1;
 
-        if (x <= creature.getAgility()) return 3;
+        if (x <= creature.getAgility()) return 2;
         if (x <= creature.getAgility()*3 && x > creature.getAgility()) return 1;
         else return 0;
 

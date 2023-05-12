@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ec5c664-f5d4-4a84-8bed-d3421c44fa74" name="Changes" comment="13th commit. Class DarkWood: run BattleField in new Thread2 correctly after add battle.join().">
+    <list default="true" id="2ec5c664-f5d4-4a84-8bed-d3421c44fa74" name="Changes" comment="14th commit. Class Adventurer: add quick slot inventory for instant healing in battle, add method checkQuickSlotItem for print current status items count in inventory. Class Town/Trader: add ability sell healing potions to Adventurer.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Adventurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Adventurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BattleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BattleField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DarkWood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DarkWood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainRPG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainRPG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Town.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Town.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683815781829</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="14th commit. Class Adventurer: add quick slot inventory for instant healing in battle, add method checkQuickSlotItem for print current status items count in inventory. Class Town/Trader: add ability sell healing potions to Adventurer.">
+      <created>1683820149117</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683820149117</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +171,14 @@
     <MESSAGE value="8th commit. Class Town is partially work. Visit Inn full work. Trader buy/sell is under construction. Temple is under construction (add Hero Level Up). Class DarkWood partially work (fixed minor bugs). Class BattleField is partially work correctly (need add start battle by initiative hero/monster + add critical strike + defense by AC)." />
     <MESSAGE value="12th commit. Class DarkWood: while run BattleField in new Thread2 get endless loop fight and freeze. Why?" />
     <MESSAGE value="13th commit. Class DarkWood: run BattleField in new Thread2 correctly after add battle.join()." />
-    <option name="LAST_COMMIT_MESSAGE" value="13th commit. Class DarkWood: run BattleField in new Thread2 correctly after add battle.join()." />
+    <MESSAGE value="14th commit. Class Adventurer: add quick slot inventory for instant healing in battle, add method checkQuickSlotItem for print current status items count in inventory. Class Town/Trader: add ability sell healing potions to Adventurer." />
+    <option name="LAST_COMMIT_MESSAGE" value="14th commit. Class Adventurer: add quick slot inventory for instant healing in battle, add method checkQuickSlotItem for print current status items count in inventory. Class Town/Trader: add ability sell healing potions to Adventurer." />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/Adventurer.java" line="54">
+        <watch expression="isEmptyQuickItem" language="JAVA" />
+      </inline-watch>
+    </watches-manager>
   </component>
 </project>

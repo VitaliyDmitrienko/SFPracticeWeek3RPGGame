@@ -12,7 +12,7 @@ public class DarkWood {
     }
 
 
-    public static void visitWood(Adventurer hero) {
+    public static void visitWood(Adventurer adventurer) {
         Scanner scanner = new Scanner ( System.in );
         int choose1;
 
@@ -21,30 +21,33 @@ public class DarkWood {
             System.out.println ( "Choose your goal.\n" );
             System.out.println ( "<1> Enter deep into the forest." );
             System.out.println ( "<2> Check hero status." );
-            System.out.println ( "<3> Exit wood and return to crossroad.\n" );
+            System.out.println ( "<3> Check hero quick item(s).");
+
+            System.out.println ( "<4> Exit wood and return to crossroad.\n" );
 
             do {
                 choose1 = scanner.nextInt ();
                 switch (choose1) {
                     case (1) -> {
                         try {
-                            moveDeepForest ( hero );
+                            moveDeepForest ( adventurer );
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
                     }
-                    case (2) -> hero.getStatus ();
-                    case (3) -> StartPosition.onCrossRoads ( hero );
+                    case (2) -> adventurer.getStatus ();
+                    case (3) -> adventurer.checkQuickSlotInventory ();
+                    case (4) -> StartPosition.onCrossRoads ( adventurer );
                     default -> System.out.println ( "Wrong input. Try right again." );
                 }
 
-            } while (choose1 < 1 || choose1 > 3);
-        } while (choose1 != 3);
+            } while (choose1 < 1 || choose1 > 4);
+        } while (choose1 != 4);
 
 
     }
 
-    private static void moveDeepForest(Adventurer hero) throws InterruptedException {
+    private static void moveDeepForest(Adventurer adventurer) throws InterruptedException {
         int currentForestPosition = monsterDeepForestArray.lastIndexOf(0);
         Scanner scanner = new Scanner ( System.in );
         int choose2;
@@ -57,18 +60,24 @@ public class DarkWood {
                 System.out.println("Silence around. You can wait.\n");
                 System.out.println("<1> Continue deep forest.");
                 System.out.println("<2> Check hero status.");
-                System.out.println("<3> Exit wood and return to crossroad.");
+                System.out.println ( "<3> Check hero quick item(s).");
+                if (!adventurer.isEmptyQuickItemsInventory()) System.out.println( "<4> Use hero quick item(s).");
+                System.out.println ( "<4> Exit wood and return to crossroad.\n" );
 
                 do {
                     choose2 = scanner.nextInt();
                     switch (choose2) {
                         case (1) -> currentForestPosition++;
-                        case (2) -> hero.getStatus();
-                        case (3) -> StartPosition.onCrossRoads(hero);
-                        default -> System.out.println("Wrong input. Try right again.");
+                        case (2) -> adventurer.getStatus();
+                        case (3) -> adventurer.checkQuickSlotInventory ();
+                        case (4) -> {
+                            if (!adventurer.isEmptyQuickItemsInventory()) adventurer.useQuickItemsInventory();;
+                        }
+                        case (5) -> StartPosition.onCrossRoads(adventurer);
+                        default -> System.out.println("Wrong choose. Try right input again.");
                     }
 
-                } while (choose2 < 1 || choose2 > 3);
+                } while (choose2 < 1 || choose2 > 5);
 
             } else {
 
@@ -89,7 +98,7 @@ public class DarkWood {
 //                battleResult = BattleField.fight(monster,hero);
 
 //  multi-Thread version
-                    battleResult.set(BattleField.fight(monster, hero));
+                    battleResult.set(BattleField.fight(monster, adventurer));
                 });
                 battle.start();    //new side Thread run
                 battle.join();    //sync main Thread / new side Thread

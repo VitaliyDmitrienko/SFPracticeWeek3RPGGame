@@ -13,7 +13,7 @@ public class Creature {
     protected int agility;
 //    protected int attack;
 
-    protected String name = "";
+    protected String name;
 
     public int getExperience() {
         return this.experience;

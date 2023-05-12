@@ -48,16 +48,16 @@ public class MainRPG {
     }
 
     private static void exitGame() {
-        System.out.println("\nAre you sure?");
-        System.out.println("<1> No exit.");
-        System.out.println("<2> Yes, exit.\n");
+        System.out.println("\nAre you sure?\n");
+        System.out.println("<1> Not exit.");
+        System.out.println("<2> Yes, exit game.\n");
         Scanner scanner = new Scanner(System.in);
         int chooseExit;
         do {
             chooseExit = scanner.nextInt();
             if (chooseExit == 1) startGame();
             else if (chooseExit == 2) System.out.println("You exit a Game. See You later !!!");
-            else System.out.println("Try right input.");;
+            else System.out.println("Try right input again.");
 
         } while (chooseExit !=2);
 
